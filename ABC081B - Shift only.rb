@@ -1,12 +1,6 @@
 n = gets.chomp.to_i
-i = 0
-array =[]
+array = gets.chomp.split(' ').map(&:to_i)
 ans = 0
- 
-while i < n do
-  array << gets.chomp.to_i
-  i += 1
-end
  
 while true
   exist_odd = false
@@ -25,5 +19,5 @@ while true
   
   ans += 1
 end
- 
+
 puts ans
