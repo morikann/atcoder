@@ -1,9 +1,18 @@
-// #include <iostream>
 #include <bits/stdc++.h>
-using namespace std;
+
+int ri() {
+  int n;
+  scanf("%d", &n);
+  return n;
+}
 
 int main() {
-  int i;
-  cin >> i;
-  cout << i * 2 + 1 << endl;
+  int h = ri();
+  int w = ri();
+  int x = ri() - 1;
+  int y = ri() - 1;
+  std::string s[h];
+  for (auto &i : s) std::cin >> i;
+
+  std::cout << s[h] << std::endl;
 }
