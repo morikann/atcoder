@@ -11,12 +11,25 @@
 # puts sum
 
 n = gets.chomp.to_i
-a = gets.split.map(&:to_i)
+array = gets.chomp.split.map(&:to_i)
 
-x = n * a.sum do
+new_array = array.map do
   _1 ** 2
 end
 
-y = a.sum ** 2
+x = n * new_array.sum
+
+y = array.sum ** 2
 
 puts x - y
+
+# x = n * a.sum do
+#   _1 ** 2
+#   p _1 ** 2
+# end
+# p x
+
+
+# y = a.sum ** 2
+
+# puts x - y
