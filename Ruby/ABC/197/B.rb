@@ -1,50 +1,85 @@
+# # 解法1
+# h, w, x, y = gets.chomp.split.map(&:to_i)
+# x = x - 1
+# y = y - 1
+
+# array = Array.new
+
+# (1..h).each do
+#   array << gets.chomp.chars
+# end
+
+# cnt = -3
+
+# x.upto(h-1) do |i|
+#   if i < h && array[i][y] != '#'
+#     cnt += 1
+#   else
+#     break
+#   end
+# end
+
+# x.downto(0) do |i|
+#   if i >= 0 && array[i][y] != '#'
+#     cnt += 1
+#   else
+#     break
+#   end
+# end
+
+# y.upto(w-1) do |j|
+#   if j < w && array[x][j] != '#'
+#     cnt += 1
+#   else
+#     break
+#   end
+# end
+
+# y.downto(0) do |j|
+#   if j >= 0 && array[x][j] != '#'
+#     cnt += 1
+#   else
+#     break
+#   end
+# end
+
+# puts cnt
+
+
+# 解法2
 h, w, x, y = gets.chomp.split.map(&:to_i)
-x = x - 1
-y = y - 1
+x -= 1
+y -= 1
 
-array = Array.new
+array = Array.new()
 
-(1..h).each do
+(1..h).each do |i|
   array << gets.chomp.chars
 end
 
-cnt = -3
+di = [-1, 0, 1, 0]
+dj = [0, -1, 0, 1]
 
-x.upto(h-1) do |i|
-  if i < h && array[i][y] != '#'
-    cnt += 1
-  else
-    break
+ans = 1
+
+(0...4).each do |v|
+  ni = x
+  nj = y
+
+  while true
+    ni += di[v]
+    nj += dj[v]
+    # if ni < 0 || nj < 0 || ni >= h || nj >= w || array[ni][nj] == '#'
+    #   break
+    # end
+    # 下の書き方の方がシンプル
+    break if ni < 0 || nj < 0 || ni >= h || nj >= w
+    break if array[ni][nj] == '#'
+    ans += 1
   end
 end
 
-x.downto(0) do |i|
-  if i >= 0 && array[i][y] != '#'
-    cnt += 1
-  else
-    break
-  end
-end
-
-y.upto(w-1) do |j|
-  if j < w && array[x][j] != '#'
-    cnt += 1
-  else
-    break
-  end
-end
-
-y.downto(0) do |j|
-  if j >= 0 && array[x][j] != '#'
-    cnt += 1
-  else
-    break
-  end
-end
-
-puts cnt
-
-
+puts ans
 
 
 # コンテスト当日の回答
