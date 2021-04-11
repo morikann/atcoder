@@ -10,7 +10,7 @@ n = gets.chomp.to_i
   (0...n).each do |i|
     # bitにi番目のフラグが立っているかどうか
     if ((bit >> i) & 1) == 1
-    # if (bit & (1 << i)) == 1
+    # if (bit & (1 << i)) != 0
       array.push(i)
     end
   end
