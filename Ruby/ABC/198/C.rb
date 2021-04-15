@@ -1,23 +1,15 @@
 r, x, y = gets.chomp.split.map(&:to_i)
 
-if x >= y
-  if r > x
-    puts 2
-  else
-    if x % r == 0
-      puts x / r
-    else
-      puts x / r + 1
-    end
-  end
-else
-  if r > y
-    puts 2
-  else
-    if y % r == 0
-      puts y / r
-    else
-      puts y / r + 1
-    end
-  end
+d2 = x*x + y*y
+ans = 1
+
+while true
+  break if r*r*ans*ans >= d2
+  ans += 1
 end
+
+if ans == 1
+  ans = 2 if r*r != d2
+end
+
+puts ans
