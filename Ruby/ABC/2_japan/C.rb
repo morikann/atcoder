@@ -1,11 +1,12 @@
 a, b = gets.chomp.split.map(&:to_i)
 
-max = 0
+ans = 0
 
-(a...b).each do |i|
-  if i.gcd(b) > max
-    max = i.gcd(b)
+(1..200000).each do |gcd|
+  cnt = b / gcd - (a - 1) / gcd 
+  if cnt >= 2
+    ans = gcd
   end
 end
 
-puts max
+puts ans
