@@ -1,10 +1,11 @@
 h, w = gets.split.map(&:to_i)
 
 # 入力
-array = []
-(0...h).each do
-  array << gets.split.map(&:to_i)
-end
+# array = []
+# (0...h).each do
+#   array << gets.split.map(&:to_i)
+# end
+array = Array.new(h){ gets.split.map(&:to_i) }
 
 # 前計算
 Row = Array.new(h){0}
