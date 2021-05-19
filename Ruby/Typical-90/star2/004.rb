@@ -1,36 +1,53 @@
 h, w = gets.split.map(&:to_i)
 
 # 入力
-# array = []
-# (0...h).each do
-#   array << gets.split.map(&:to_i)
-# end
 array = Array.new(h){ gets.split.map(&:to_i) }
 
 # 前計算
-Row = Array.new(h){0}
-Column = Array.new(w){0}
-(0...h).each do |i|
-  (0...w).each do |j|
+# Row = Array.new(h){0}
+Row = Array.new(h, 0)
+# Column = Array.new(w){0}
+Column = Array.new(w, 0)
+i = 0
+# (0...h).each do |i|
+while i < h
+  j = 0
+  # (0...w).each do |j|
+  while j < w
     Row[i] += array[i][j]
     Column[j] += array[i][j]
+    j += 1
   end
+  i += 1
 end
 
+i = 0
 # 答えの計算
 Answer = Array.new(h){[]}
-(0...h).each do |i|
-  (0...w).each do |j|
+# Answer = Array.new(h, [])
+# (0...h).each do |i|
+while i < h
+  j = 0
+  # (0...w).each do |j|
+  while j < w
     Answer[i][j] = Row[i] + Column[j] - array[i][j]
+    j += 1
   end
+  i += 1
 end
 
+i = 0
 # 出力
-(0...h).each do |i|
-  (0...w).each do |j|
+# (0...h).each do |i|
+while i < h
+  j = 0
+  # (0...w).each do |j|
+  while j < w
     print "#{Answer[i][j]} "
+    j += 1
   end
   print "\n"
+  i += 1
 end
 
 
