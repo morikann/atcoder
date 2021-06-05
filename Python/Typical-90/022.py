@@ -15,5 +15,5 @@ def gcd(x, y):
     return x
 
 r = gcd(a, gcd(b, c))
-cnt = (a / r - 1) + (b / r - 1) + (c / r - 1)
+cnt = (a // r - 1) + (b // r - 1) + (c // r - 1)
 print(cnt)
